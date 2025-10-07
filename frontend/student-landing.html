@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student - SkillPortal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>tailwind.config = { darkMode: 'class' }</script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+  <!-- ===== TOP BAR ===== -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-700 px-6 py-3 flex items-center justify-between">
+    <div class="font-bold text-xl flex items-center gap-2"><i class="fa-solid fa-bolt text-indigo-600"></i> SkillPortal</div>
+    <div class="flex items-center gap-4">
+      <button id="themeToggle" class="text-lg"><i class="fa-solid fa-circle-half-stroke"></i></button>
+      <div class="relative">
+        <button id="profileBtn" class="text-lg"><i class="fa-solid fa-user"></i></button>
+        <!-- PROFILE DROPDOWN -->
+        <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+          <a onclick="alert('Settings')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">⚙️ Settings</a>
+          <a onclick="alert('Feedback')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">💬 Feedback</a>
+          <a onclick="alert('Bookmarks')" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">🔖 Bookmarks</a>
+          <a onclick="logout()" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">🚪 Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="max-w-5xl mx-auto px-6 py-12 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Choose Your Track</h1>
+    <p class="text-gray-600 dark:text-gray-300 mb-10">Pick a card to start practising assessments.</p>
+
+    <!-- ===== CARDS ===== -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Communication -->
+      <div onclick="enterTrack('communication')" class="cursor-pointer p-8 rounded-2xl border border-gray-300 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-xl transition">
+        <i class="fa-solid fa-comments text-4xl mb-4 text-indigo-600"></i>
+        <h3 class="text-2xl font-semibold mb-2">Communication</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Verbal, written & presentation skills</p>
+      </div>
+
+      <!-- Logical -->
+      <div onclick="enterTrack('logical')" class="cursor-pointer p-8 rounded-2xl border border-gray-300 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-xl transition">
+        <i class="fa-solid fa-brain text-4xl mb-4 text-indigo-600"></i>
+        <h3 class="text-2xl font-semibold mb-2">Logical</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Aptitude & reasoning questions</p>
+      </div>
+
+      <!-- Technical -->
+      <div onclick="enterTrack('technical')" class="cursor-pointer p-8 rounded-2xl border border-gray-300 dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 hover:shadow-xl transition">
+        <i class="fa-solid fa-laptop-code text-4xl mb-4 text-indigo-600"></i>
+        <h3 class="text-2xl font-semibold mb-2">Technical</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Core CS & coding fundamentals</p>
+      </div>
+    </div>
+  </section>
+
+  <script type="module">
+    // theme toggle
+    const html = document.documentElement;
+    if (localStorage.theme === 'dark') html.classList.add('dark');
+    document.getElementById('themeToggle').onclick = () => {
+      html.classList.toggle('dark');
+      localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+    };
+
+    // profile dropdown
+    const btn = document.getElementById('profileBtn');
+    const menu = document.getElementById('profileMenu');
+    btn.onclick = () => menu.classList.toggle('hidden');
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#profileBtn') && !e.target.closest('#profileMenu')) menu.classList.add('hidden');
+    });
+
+    // enter track -> old assessment page (reuse previous logic)
+    window.enterTrack = (track) => {
+      const user = JSON.parse(localStorage.getItem('user'));
+      const db = JSON.parse(localStorage.getItem('portalDB'));
+      db.students[user.email].course = track;
+      localStorage.setItem('portalDB', JSON.stringify(db));
+      // jump to assessment page (reuse your dashboard.html?role=student)
+      location.href = 'dashboard.html?role=student';
+    };
+
+    // logout
+    window.logout = () => { localStorage.clear(); location.href = 'index.html'; };
+  </script>
+</body>
+</html>
