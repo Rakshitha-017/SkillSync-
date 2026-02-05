@@ -28,28 +28,6 @@ The objective of SkillSync is to provide a simple and structured system where:
 
 ---
 
-## Project Structure
-SkillSync/
-├── public/
-│ ├── login.html
-│ ├── student.html
-│ ├── recruiter.html
-│ ├── test.html
-│ ├── choose-test.html
-│ ├── speech-test.html
-│ └── help.html
-│
-├── data/
-├── scripts/
-│ └── create-demo-data.js
-│
-├── python-help-bot/
-├── uploads/
-├── package.json
-├── start-demo.bat
-└── README.md
-
-
 How to Run the Project:
 1. Clone the repository
 2. Install dependencies using npm install
