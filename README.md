@@ -28,20 +28,21 @@ The objective of SkillSync is to provide a simple and structured system where:
 
 ---
 
-Project Structure:
+## Project Structure
 SkillSync/
 ├── public/
-│   ├── login.html
-│   ├── student.html
-│   ├── recruiter.html
-│   ├── test.html
-│   ├── choose-test.html
-│   ├── speech-test.html
-│   └── help.html
+│ ├── login.html
+│ ├── student.html
+│ ├── recruiter.html
+│ ├── test.html
+│ ├── choose-test.html
+│ ├── speech-test.html
+│ └── help.html
 │
 ├── data/
 ├── scripts/
-│   └── create-demo-data.js
+│ └── create-demo-data.js
+│
 ├── python-help-bot/
 ├── uploads/
 ├── package.json
