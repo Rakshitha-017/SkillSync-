@@ -1,42 +1,35 @@
-SkillSync
-AI-Powered Career Readiness Assistant for Students
+# SkillSync
 
-SkillSync is a web-based career readiness platform designed to help students evaluate and improve their technical, communication, and career skills. The system provides structured assessments, role-based dashboards, and AI-assisted guidance to support placement preparation and candidate screening.
+## Career Readiness and Assessment Platform for Students
 
-Overview
+SkillSync is a web-based application designed to assess and support students in their career preparation journey. The platform provides skill tests and enables recruiters to simplify early-stage candidate evaluation.
 
-Many students lack a clear understanding of their career readiness, while recruiters face challenges in effectively evaluating candidates. SkillSync bridges this gap by offering a centralized platform for assessments, communication testing, and performance analysis.
+---
 
-Features
-Student Module
+## Objective
 
-User authentication
+The objective of SkillSync is to provide a simple and structured system where:
 
-Technical skill assessment tests
+- Students can assess their technical and communication skills  
+- Recruiters can review candidate performance  
+- Career readiness can be evaluated in a centralized platform  
 
-Speech and communication test
+---
 
-Career guidance through a help module
+## Key Features
 
-Performance evaluation
+### Student Module
 
-Recruiter Module
+- Secure login  
+- Technical assessment tests  
+- Speech and communication test  
+- Help section for guidance  
+- Performance overview  
 
-Recruiter login and dashboard
+---
 
-View and evaluate student test results
-
-Assist in preliminary candidate screening
-
-AI Assistance
-
-Python-based help bot
-
-Guidance for tests and career-related queries
-
-Project Structure
+Project Structure:
 SkillSync/
-│
 ├── public/
 │   ├── login.html
 │   ├── student.html
@@ -46,74 +39,18 @@ SkillSync/
 │   ├── speech-test.html
 │   └── help.html
 │
-├── data/                  # Demo and test data
+├── data/
 ├── scripts/
 │   └── create-demo-data.js
-│
-├── python-help-bot/       # AI help bot module
-├── uploads/               # User uploaded files
-│
+├── python-help-bot/
+├── uploads/
 ├── package.json
-├── package-lock.json
 ├── start-demo.bat
 └── README.md
-Technology Stack
 
-Frontend: HTML, CSS, JavaScript
+How to Run the Project:
+1. Clone the repository
+2. Install dependencies using npm install
+3. Run start-demo.bat or execute the demo script
+4. Open login.html in the browser
 
-Backend: Node.js
-
-AI Module: Python
-
-Data Storage: JSON (demo data)
-
-Tools: Git, GitHub, npm
-
-Installation and Setup
-Step 1: Clone the repository
-git clone https://github.com/your-username/SkillSync.git
-cd SkillSync
-Step 2: Install dependencies
-npm install
-Step 3: Run the demo application
-start-demo.bat
-
-or
-
-node scripts/create-demo-data.js
-Step 4: Access the application
-
-Open the following URL in a web browser:
-
-http://localhost:3000/login.html
-Application Workflow
-
-User accesses the login page
-
-User selects role (Student or Recruiter)
-
-Students complete skill and speech assessments
-
-Recruiters review performance data
-
-Help bot provides guidance and assistance
-
-Future Enhancements
-
-Resume analysis using AI
-
-Mock interview modules
-
-Company-specific assessment tracks
-
-Database integration (MySQL or MongoDB)
-
-Deployment to cloud platforms
-
-Project Status
-
-Completed – Final Product
-
-Contributors
-
-Developed by a team of undergraduate students as part of an academic and placement-oriented project.
